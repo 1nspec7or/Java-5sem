@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Person</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose person to edit:</h1>
+        <h2><a th:href="@{/allpeople}">Get people list</a></h2>
+        <form th:action="@{/editperson}" method="post">
+            <select name="PersonNames">
+                <option th:each="person:${people}" th:value ="${person.name}" th:text="${person.name}"/>
+            </select>
+            <p>
+                Name:<input type="text" name = "Name">
+            </p>
+            <p>
+                Age:<input type="text" name="Age"/>
+            </p>
+
+
+            <input class ="button-main-page" type="submit" value="Edit">
+        </form>
+    </div>
+</body>
+</html>
